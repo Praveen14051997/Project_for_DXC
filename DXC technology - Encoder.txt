@@ -1,0 +1,215 @@
+package com.praveen;
+
+import java.util.ArrayList;
+import java.util.Hashmap;
+import java.util.List;
+import java.util.Map;
+
+public class Encoder {
+	static Map <Character,List<Character>> refVal = new HashMap<>();
+	static List<Character> val = new ArrayList<>();
+
+	public static void main(String[]args){
+		val.add('/');val.add('+');
+		refVal.put('A', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add(',');
+		refVal.put('B', val);
+		val = new ArrayList<>();
+
+
+		val.add('A'); val.add('-');
+		refVal.put('C', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('.');
+		refVal.put('D', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('/');
+		refVal.put('E', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('A');
+		refVal.put('F', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('B');
+		refVal.put('G', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('C');
+		refVal.put('H', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('D');
+		refVal.put('I', val);
+		val = new ArrayList<>();
+
+  		val.add('A'); val.add('E');
+		refVal.put('J', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('F');
+		refVal.put('K', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('G');
+		refVal.put('L', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('H');
+		refVal.put('M', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('I');
+		refVal.put('N', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('J');
+		refVal.put('O', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('K');
+		refVal.put('P', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('L');
+		refVal.put('Q', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('M');
+		refVal.put('R', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('N');
+		refVal.put('S', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('O');
+		refVal.put('T', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('P');
+		refVal.put('U', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('Q');
+		refVal.put('V', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('R');
+		refVal.put('W', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('S');
+		refVal.put('X', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('T');
+		refVal.put('Y', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('U');
+		refVal.put('Z', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('V');
+		refVal.put('0', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('W');
+		refVal.put('1', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('X');
+		refVal.put('2', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('Y');
+		refVal.put('3', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('Z');
+		refVal.put('4', val);
+		val = new ArrayList<>();
+
+
+		val.add('A'); val.add('0');
+		refVal.put('5', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('1');
+		refVal.put('6', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('2');
+		refVal.put('7', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('3');
+		refVal.put('8', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('4');
+		refVal.put('9', val);
+		val = new ArrayList<>();
+
+
+		val.add('A'); val.add('5');
+		refVal.put('(', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('6');
+		refVal.put(')', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('7');
+		refVal.put('*', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('8');
+		refVal.put('+', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('9');
+		refVal.put(',', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('(');
+		refVal.put('-', val);
+		val = new ArrayList<>();
+
+
+		val.add('A'); val.add(')');
+		refVal.put('.', val);
+		val = new ArrayList<>();
+
+		val.add('A'); val.add('*');
+		refVal.put('/', val);
+		val = new ArrayList<>();
+
+		String inputVal = "ABCD";
+		System.out.println("Encoder 1 O/P : " + encoder(inputVal, 1));
+		System.out.println("Encoder 2 O/P : " + encoder(inputVal, 2));
+     }
+
+private static String encoder(String inputVal, int format) {
+		StringBuilder op = new StringBuilder();
+		int counter = 0;
+		op.append((format == 1)?"B" : "F");
+		for(char c :inputVal.toCharArray()) {
+		     if(refVal.containsKey(c)){
+			List<Character> res = refVal.get(c);
+			op.append(res.get(format-1));
+		     }
+		     else {
+		          op.append(c);
+		       }
+	                        counter++;
+		}
+		return op.toString();
+	    }
+}
+}
